@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Instagram Post Generator</title>
+</head>
+<body>
+    <h1>Bath Film Society Instagram Post Generator</h1>
+    <form method="POST">
+        <label for="movie_name">Movie Name:</label>
+        <input type="text" id="movie_name" name="movie_name" required>
+
+        <label for="venue">Venue:</label>
+        <input type="text" id="venue" name="venue" required>
+
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time" required>
+
+        <button type="submit">Generate Posts</button>
+    </form>
+
+    {% if images %}
+    <h2>Generated Posts:</h2>
+    <img src="{{ images[0] }}" alt="Post 1">
+    <img src="{{ images[1] }}" alt="Post 2">
+    {% endif %}
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
